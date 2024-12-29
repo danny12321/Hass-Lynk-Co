@@ -28,6 +28,9 @@ def create_sensors(coordinator, vin):
             "Lynk & Co Battery distance",
             "vehicle_record.electricStatus.distanceToEmptyOnBatteryOnly",
             "km",
+            None,
+            "SensorDeviceClass.DISTANCE",
+            "km"
         ),
     ]
     return sensors

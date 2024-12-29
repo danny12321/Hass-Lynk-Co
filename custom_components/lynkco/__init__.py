@@ -388,7 +388,7 @@ async def async_remove_config_entry_device(
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Unload a configuration entry."""
-    platforms = ["sensor", "binary_sensor", "lock", "device_tracker", "number"]
+    platforms = ["sensor", "binary_sensor", "lock", "device_tracker"]
     unload_ok = await hass.config_entries.async_unload_platforms(entry, platforms)
     if unload_ok:
         # Clean up integration data
@@ -401,5 +401,5 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
 
 async def setup_platforms(hass: HomeAssistant, entry: ConfigEntry):
     """Setup platforms like sensor, lock, etc."""
-    platforms = ["sensor", "binary_sensor", "lock", "device_tracker", "number"]
+    platforms = ["sensor", "binary_sensor", "lock", "device_tracker"]
     await hass.config_entries.async_forward_entry_setups(entry, platforms)

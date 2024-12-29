@@ -1,13 +1,13 @@
 import logging
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.helpers.entity import DeviceInfo
+from homeassistant.components.sensor import SensorEntity
 
 from ..const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
-
-class LynkCoSensor(CoordinatorEntity):
+class LynkCoSensor(CoordinatorEntity, SensorEntity):
     def __init__(
         self,
         coordinator,
@@ -16,6 +16,8 @@ class LynkCoSensor(CoordinatorEntity):
         data_path,
         unit_of_measurement=None,
         state_mapping=None,
+        device_class=None,
+        native_unit_of_measurement=None,
     ):
         super().__init__(coordinator)
         self._vin = vin
@@ -23,6 +25,9 @@ class LynkCoSensor(CoordinatorEntity):
         self._data_path = data_path.split(".")
         self._unit_of_measurement = unit_of_measurement
         self._state_mapping = state_mapping
+        self.device_class = device_class
+        self.native_unit_of_measurement = native_unit_of_measurement
+        self.native_value = None
 
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, f"lynk_co_{self._vin}")},
