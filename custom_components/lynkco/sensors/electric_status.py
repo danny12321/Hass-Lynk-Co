@@ -1,4 +1,5 @@
 from .lynk_co_sensor import LynkCoSensor
+from .lynk_co_sensor_number import LynkCoSensorNumber
 
 
 def create_sensors(coordinator, vin):
@@ -23,12 +24,14 @@ def create_sensors(coordinator, vin):
             "vehicle_record.electricStatus.chargeLevel",
             "%",
         ),
-        LynkCoSensor(
+        LynkCoSensorNumber(
             coordinator,
             vin,
             "Lynk & Co Battery distance",
             "vehicle_record.electricStatus.distanceToEmptyOnBatteryOnly",
             "km",
+            None,
+            "NumberDeviceClass.DISTANCE"
         ),
     ]
     return sensors
