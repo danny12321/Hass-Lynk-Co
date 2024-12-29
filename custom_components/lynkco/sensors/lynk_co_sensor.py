@@ -25,10 +25,10 @@ class LynkCoSensor(CoordinatorEntity, SensorEntity):
         self._name = name
         self._data_path = data_path.split(".")
         self._unit_of_measurement = unit_of_measurement
-        # self._state_mapping = state_mapping
-        self.device_class = device_class
-        self.native_unit_of_measurement = native_unit_of_measurement
-        self.native_value = native_value
+        self._state_mapping = state_mapping
+        self._device_class = device_class
+        self._native_unit_of_measurement = native_unit_of_measurement
+        self._native_value = native_value
 
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, f"lynk_co_{self._vin}")},
@@ -50,8 +50,9 @@ class LynkCoSensor(CoordinatorEntity, SensorEntity):
             _LOGGER.warning(
                 f"Data needs to be mapped"
             )
-            # return self._state_mapping.get(data, data)
-            return 4
+            if self.device_class == "SensorDeviceClass.BATTERY":
+                return 4
+            return self._state_mapping.get(data, data)
         return data
 
     @property
