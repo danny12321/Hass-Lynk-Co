@@ -25,7 +25,7 @@ class LynkCoSensor(CoordinatorEntity, SensorEntity):
         self._name = name
         self._data_path = data_path.split(".")
         self._unit_of_measurement = unit_of_measurement
-        self._state_mapping = state_mapping
+        # self._state_mapping = state_mapping
         self.device_class = device_class
         self.native_unit_of_measurement = native_unit_of_measurement
         self.native_value = native_value
@@ -47,7 +47,11 @@ class LynkCoSensor(CoordinatorEntity, SensorEntity):
             if data:
                 data = data.get(key)
         if self._state_mapping:
-            return self._state_mapping.get(data, data)
+            _LOGGER.warning(
+                f"Data needs to be mapped"
+            )
+            # return self._state_mapping.get(data, data)
+            return 4
         return data
 
     @property
