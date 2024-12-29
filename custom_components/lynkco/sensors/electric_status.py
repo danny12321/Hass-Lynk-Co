@@ -22,7 +22,7 @@ def create_sensors(coordinator, vin):
             "vehicle_record.electricStatus.chargeLevel",
             "%",
         ),
-        LynkCoSensorNumber(
+        LynkCoSensor(
             coordinator,
             vin,
             "Lynk & Co Battery distance",
