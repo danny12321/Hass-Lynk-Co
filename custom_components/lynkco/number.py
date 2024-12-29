@@ -3,7 +3,6 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.components.number import NumberEntity
 
-from custom_components.lynkco.sensors.lynk_co_sensor_number import LynkCoSensorNumber
 from .const import COORDINATOR, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
