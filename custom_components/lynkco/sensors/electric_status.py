@@ -29,8 +29,9 @@ def create_sensors(coordinator, vin):
             "vehicle_record.electricStatus.distanceToEmptyOnBatteryOnly",
             "km",
             None,
-            "SensorDeviceClass.DISTANCE",
-            "km"
+            "SensorDeviceClass.TEMPERATURE",
+            "°C",
+            12.5
         ),
     ]
     return sensors
