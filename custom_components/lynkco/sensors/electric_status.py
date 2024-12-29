@@ -20,7 +20,7 @@ def create_sensors(coordinator, vin):
             vin,
             "Lynk & Co Battery",
             "vehicle_record.electricStatus.chargeLevel",
-            "%",
+            None,
             "SensorDeviceClass.BATTERY",
             "%",
             4
