@@ -1,6 +1,4 @@
 from .lynk_co_sensor import LynkCoSensor
-from .lynk_co_sensor_number import LynkCoSensorNumber
-
 
 def create_sensors(coordinator, vin):
     sensors = [
