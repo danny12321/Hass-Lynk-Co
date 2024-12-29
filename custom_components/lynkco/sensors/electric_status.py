@@ -21,6 +21,17 @@ def create_sensors(coordinator, vin):
             "Lynk & Co Battery",
             "vehicle_record.electricStatus.chargeLevel",
             "%",
+            "SensorDeviceClass.BATTERY",
+            "%"
+        ),
+        LynkCoSensor(
+            coordinator,
+            vin,
+            "Lynk & Co Battery Energy Storage",
+            "vehicle_record.electricStatus.chargeLevel",
+            "%",
+            "SensorDeviceClass.ENERGY_STORAGE",
+            "kWh"
         ),
         LynkCoSensor(
             coordinator,
