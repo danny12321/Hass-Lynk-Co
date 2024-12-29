@@ -70,3 +70,10 @@ class LynkCoSensor(CoordinatorEntity, SensorEntity):
     @property
     def unique_id(self):
         return f"{self._vin}_{self._name}"
+    
+    @property
+    def native_value(self) -> int:
+        _LOGGER.error(
+            f"returning native_value {self.name}"
+        )
+        return 14
