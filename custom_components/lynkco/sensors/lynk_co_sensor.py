@@ -28,7 +28,7 @@ class LynkCoSensor(CoordinatorEntity, SensorEntity):
         self._state_mapping = state_mapping
         self.device_class = device_class
         self.native_unit_of_measurement = native_unit_of_measurement
-        self.native_value = native_value
+        # self.native_value = native_value
 
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, f"lynk_co_{self._vin}")},
