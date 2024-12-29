@@ -22,16 +22,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
                 vin,
                 "Lynk & Co Locks",
                 "vehicle_shadow.vls.doorLocksStatus",
-            ),
-            LynkCoSensorNumber(
-                coordinator,
-                vin,
-                "Lynk & Co Battery distance",
-                "vehicle_record.electricStatus.distanceToEmptyOnBatteryOnly",
-                "km",
-                None,
-                "NumberDeviceClass.DISTANCE"
-            ),
+            )
         ]
     )
 
